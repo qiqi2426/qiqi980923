@@ -15,18 +15,26 @@ public class UserContorller {
     @Resource(name ="userServiceImpl")
     UserService userService;
 
+    /**
+     * 后台管理登录验证
+     * @param user
+     * @param session
+     * @return
+     * @throws JsonProcessingException
+     */
     @RequestMapping("useryanzhen")
-    public String Useryanzhen(User user, HttpSession session) throws JsonProcessingException {
+    public String userYanzhen(User user, HttpSession session) throws JsonProcessingException {
         User user1 = userService.selectOneUser(user);
         if (user1!=null){
             session.setAttribute("user",user1);
-            return "redirect:/selectUserMenu";
+            return "redirect:selectusermenu";
         }
 
         return "redirect:userindex";
     }
+    //进去后台登录界面
     @RequestMapping("userindex")
-    public String Userindex(){
+    public String userindex(){
         return "userindex";
     }
 }

@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.TenderingprjMapper">
-
+    <resultMap id="selectprjAllBySignAndUseridresultMap" type="com.domain.Tenderingprj">
+        <id property="id" column="id"></id>
+        <result property="userid" column="userid"></result>
+        <result property="title" column="title"></result>
+        <result property="body" column="body"></result>
+        <result property="opentime" column="opentime"></result>
+        <result property="supplierendtime" column="supplierendtime"></result>
+        <result property="sign" column="sign"></result>
+        <result property="tenderingtypeid" column="tenderingtypeid"></result>
+        <association property="tenderingtype" javaType="com.domain.Tenderingtype">
+            <id property="id" column="id"></id>
+            <result property="tenderingtypename" column="tenderingtypename"></result>
+        </association>
+    </resultMap>
+    <select id="selectprjAllBySignAndUserid" resultMap="selectprjAllBySignAndUseridresultMap"
+            parameterType="com.domain.Tenderingprj">
+        select a.id,
+        a.userid,
+        a.title,
+        a.body,
+        a.opentime,
+        a.supplierendtime,
+        a.sign,
+        a.tenderingtypeid,
+        b.tenderingtypename
+        from tenderingprj a
+        inner join tenderingtype b on a.tenderingtypeid = b.id and a.sign=#{sign} and a.userid=#{userid}
+    </select>
+    <select id="selectDetailedInformationById" resultMap="selectprjAllBySignAndUseridresultMap" parameterType="int">
+        select a.id,
+        a.userid,
+        a.title,
+        a.body,
+        a.opentime,
+        a.supplierendtime,
+        a.sign,
+        a.tenderingtypeid,
+        b.tenderingtypename
+        from tenderingprj a
+        inner join tenderingtype b on a.tenderingtypeid = b.id and a.id=#{id}
+    </select>
+    <update id="tongguoTenderngprjById" parameterType="com.domain.Tenderingprj">
+        update tenderingprj set sign=1,releasetime=#{releasetime} where id=#{id}
+    </update>
 </mapper>

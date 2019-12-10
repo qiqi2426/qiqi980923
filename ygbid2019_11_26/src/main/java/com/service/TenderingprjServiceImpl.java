@@ -1,10 +1,12 @@
 package com.service;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.domain.Tenderingprj;
 import com.mapper.TenderingprjMapper;
-import com.service.TenderingprjService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class TenderingprjServiceImpl implements TenderingprjService{
 
@@ -39,6 +41,21 @@ public class TenderingprjServiceImpl implements TenderingprjService{
     @Override
     public int updateByPrimaryKey(Tenderingprj record) {
         return tenderingprjMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Tenderingprj> selectprjAll(Tenderingprj tenderingprj) {
+        return tenderingprjMapper.selectprjAllBySignAndUserid(tenderingprj);
+    }
+
+    @Override
+    public Tenderingprj selectDetailedInformationById(int id) {
+        return tenderingprjMapper.selectDetailedInformationById(id);
+    }
+
+    @Override
+    public int tongguoTenderngprjById(Tenderingprj tenderingprj) {
+        return tenderingprjMapper.tongguoTenderngprjById(tenderingprj);
     }
 
 }

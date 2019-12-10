@@ -16,6 +16,16 @@ public class Tenderingfile {
     */
     private String filepath;
 
+    private String filename;
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     public Integer getId() {
         return id;
     }

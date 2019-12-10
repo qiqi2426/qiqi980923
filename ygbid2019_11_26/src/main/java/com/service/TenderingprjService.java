@@ -1,6 +1,9 @@
 package com.service;
 
 import com.domain.Tenderingprj;
+
+import java.util.List;
+
 public interface TenderingprjService{
 
 
@@ -15,5 +18,11 @@ public interface TenderingprjService{
     int updateByPrimaryKeySelective(Tenderingprj record);
 
     int updateByPrimaryKey(Tenderingprj record);
+
+    List<Tenderingprj> selectprjAll(Tenderingprj tenderingprj);
+
+    Tenderingprj selectDetailedInformationById(int id);
+
+    int tongguoTenderngprjById(Tenderingprj tenderingprj);
 
 }

@@ -8,12 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>用户登录</title>
 </head>
 <body>
 <fieldset>
     <legend>登录</legend>
-    <form action="useryanzhen" method="post">
+    <form action="<%=request.getContextPath()%>/useryanzhen" method="post">
         用户名：<input type="text" name="username"><br>
         密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="userpwd"><br>
         <input type="submit" value="登录">

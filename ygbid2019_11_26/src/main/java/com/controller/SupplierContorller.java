@@ -24,7 +24,7 @@ public class SupplierContorller {
      * @return
      */
     @RequestMapping("selectallsupplier")
-    public ModelAndView SelectAllSupplier(Integer page){
+    public ModelAndView selectAllSupplier(Integer page){
         if (page==null){
             page=0;
         }

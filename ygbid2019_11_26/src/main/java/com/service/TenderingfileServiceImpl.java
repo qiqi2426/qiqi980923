@@ -5,6 +5,8 @@ import com.mapper.TenderingfileMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class TenderingfileServiceImpl implements TenderingfileService{
 
@@ -18,7 +20,7 @@ public class TenderingfileServiceImpl implements TenderingfileService{
 
     @Override
     public int insert(Tenderingfile record) {
-        return tenderingfileMapper.addOneTenderingfile(record);
+        return tenderingfileMapper.insert(record);
     }
 
     @Override
@@ -39,6 +41,11 @@ public class TenderingfileServiceImpl implements TenderingfileService{
     @Override
     public int updateByPrimaryKey(Tenderingfile record) {
         return tenderingfileMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Tenderingfile> selectAllFileByPrjid(int id) {
+        return tenderingfileMapper.selectAllBuPrjid(id);
     }
 
 }

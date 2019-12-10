@@ -1,6 +1,9 @@
 package com.service;
 
 import com.domain.Tenderingfile;
+
+import java.util.List;
+
 public interface TenderingfileService{
 
 
@@ -16,5 +19,5 @@ public interface TenderingfileService{
 
     int updateByPrimaryKey(Tenderingfile record);
 
-
+    List<Tenderingfile> selectAllFileByPrjid(int id);
 }

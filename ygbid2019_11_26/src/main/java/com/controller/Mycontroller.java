@@ -22,8 +22,14 @@ public class Mycontroller {
     @Resource(name ="userServiceImpl")
     UserService userService;
 
-    @RequestMapping("selectUserMenu")
-    public ModelAndView SelectUserMenu(HttpSession session) throws JsonProcessingException {
+    /**
+     * 根据管理员身份获取对应权限
+     * @param session
+     * @return
+     * @throws JsonProcessingException
+     */
+    @RequestMapping("selectusermenu")
+    public ModelAndView selectUserMenu(HttpSession session) throws JsonProcessingException {
         User user = (User) session.getAttribute("user");
         ModelAndView modelAndView=new ModelAndView();
         List<Menu> menus = userService.selectAllMenuByUser(user);

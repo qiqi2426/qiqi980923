@@ -1,9 +1,12 @@
 package com.domain;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 public class Tenderingprj {
     @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer id;
 
     /**
@@ -14,7 +17,7 @@ public class Tenderingprj {
     /**
     * 招标项目发布人（默认是当前登陆用户）外键，引用后台用户表的id
     */
-    private int userid;
+    private Integer userid;
 
     /**
     * 标题
@@ -51,15 +54,17 @@ public class Tenderingprj {
     */
     private Integer sign;
 
-    private Integer tenderingfileid;
+@Transient
+    private Tenderingtype tenderingtype;
 
-    public Integer getTenderingfileid() {
-        return tenderingfileid;
+    public Tenderingtype getTenderingtype() {
+        return tenderingtype;
     }
 
-    public void setTenderingfileid(Integer tenderingfileid) {
-        this.tenderingfileid = tenderingfileid;
+    public void setTenderingtype(Tenderingtype tenderingtype) {
+        this.tenderingtype = tenderingtype;
     }
+
 
     public Integer getId() {
         return id;

@@ -9,9 +9,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <script src="js/jquery-2.1.0.js"></script>
+    <title>未审核供应商页面</title>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css">
+    <script src="<%=request.getContextPath()%>/js/jquery-2.1.0.js"></script>
     <script>
 // 判断是否是第一页
         function pddy() {
@@ -49,7 +49,7 @@
                 <td>${v.supplieraddress}</td>
                 <td>${v.tel}</td>
                 <td>${v.sign}</td>
-                <td><a class="btn btn-primary btn-sm btn-block active" role="button" href="selectUserMenu">提交</a></td>
+                <td><a class="btn btn-primary btn-sm btn-block active" role="button" href="selectusermenu">提交</a></td>
             </tr>
         </c:forEach>
     </table>
